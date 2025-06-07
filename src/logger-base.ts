@@ -19,12 +19,16 @@ export class LoggerBase {
 
   async log(logData: LogData) {
     for (const logOutput of this.logOutputs) {
-      let finalLogData = logData;
-      if (logOutput.transform) {
-        // This might return null to prevent sending
-        finalLogData = await logOutput.transform(logData);
+      if (!logOutput.transform) {
+        // no transform function, just log
+        await logOutput.log(logData);
+        continue;
       }
-      if (finalLogData) await logOutput.log(finalLogData);
+      // There is a transformation function
+      // This might return null to prevent sending
+      const transformedLogData = await logOutput.transform(logData);
+      if (transformedLogData)
+        await logOutput.log(transformedLogData);
     }
   }
 }
