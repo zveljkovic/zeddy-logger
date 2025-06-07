@@ -24,7 +24,7 @@ export class LoggerBase {
         // This might return null to prevent sending
         finalLogData = await logOutput.transform(logData);
       }
-      if (!finalLogData) await logOutput.log(finalLogData);
+      if (finalLogData) await logOutput.log(finalLogData);
     }
   }
 }
