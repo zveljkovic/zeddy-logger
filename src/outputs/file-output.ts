@@ -1,4 +1,4 @@
-import {LogData, LogOutput, LogTag} from '../logger-base';
+import {LogData, LogOutput} from '../logger-base';
 import * as fs from 'fs';
 
 export interface FileOutputOptions {
@@ -9,7 +9,7 @@ export interface FileOutputOptions {
 export class FileOutput implements LogOutput {
   private readonly _fd!: number;
 
-  constructor(private opts: FileOutputOptions) {
+  constructor(protected opts: FileOutputOptions) {
     this._fd = fs.openSync(opts.filename, 'a');
   }
 

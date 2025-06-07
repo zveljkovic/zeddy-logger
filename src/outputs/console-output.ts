@@ -11,7 +11,7 @@ export interface ConsoleOutputOptions {
   tagToConsoleFunctionMap?: ConsoleFunctionMap[];
 }
 export class ConsoleOutput implements LogOutput {
-  constructor(private opts: ConsoleOutputOptions) {}
+  constructor(protected opts: ConsoleOutputOptions) {}
 
   async log(logData: LogData) {
     let logFunction = 'log';
