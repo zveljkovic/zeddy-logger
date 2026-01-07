@@ -12,19 +12,19 @@ export class StandardLogger extends LoggerBase {
     super(logOutputs);
   }
 
-  info(message: string, data?: any) {
-    this.log({tags: [LogLevel.info], data, message});
+  public info(message: string, data?: any) {
+    void this.log({tags: [LogLevel.info], data, message});
   }
 
-  debug(message: string, data?: any) {
-    this.log({tags: [LogLevel.debug], data, message});
+  public debug(message: string, data?: any) {
+    void this.log({tags: [LogLevel.debug], data, message});
   }
 
-  warning(message: string, data?: any) {
-    this.log({tags: [LogLevel.warning], data, message});
+  public warning(message: string, data?: any) {
+    void this.log({tags: [LogLevel.warning], data, message});
   }
 
-  error(message: string, data?: any) {
-    this.log({tags: [LogLevel.error], data, message});
+  public error(message: string, data?: any) {
+    void this.log({tags: [LogLevel.error], data, message});
   }
 }
