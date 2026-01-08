@@ -1,18 +1,4 @@
-export type LogTag = {
-  name: string;
-  value: string;
-};
-
-export type LogData = {
-  message: string;
-  data: any;
-  tags: LogTag[];
-};
-
-export type LogOutput = {
-  log: (logData: LogData) => Promise<void>;
-  transform?: (logData: LogData) => Promise<LogData | null>;
-};
+import type {LogData, LogOutput} from './logger-types';
 
 export class LoggerBase {
   constructor(private logOutputs: LogOutput[]) {}

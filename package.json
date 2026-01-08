@@ -1,51 +1,51 @@
 {
   "name": "zeddy-logger",
-  "version": "1.0.3",
+  "type": "module",
+  "version": "1.0.6",
   "description": "Logging library for Node",
   "author": "Zlatibor Veljković",
   "license": "The Unlicense",
-  "repository": "https://github.com/zveljkovic/zeddy-logging",
   "homepage": "https://github.com/zveljkovic/zeddy-logging",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zveljkovic/zeddy-logging.git"
+  },
   "keywords": [
     "logging",
     "zeddy"
   ],
-  "scripts": {
-    "example": "node-dev --respawn examples\\main.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json & node fixup.js",
-    "publish:local": "npm pack --pack-destination",
-    "prepare": "npm run build",
-    "prepublishOnly": "",
-    "preversion": "",
-    "version": "git add -A src",
-    "postversion": "git push && git push --tags"
+  "bugs": {
+    "url": "https://github.com/zveljkovic/zeddy-logging/issues"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
   "exports": {
     ".": {
-      "types": "./dist/esm/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     },
     "./outputs": {
-      "types": "./dist/esm/outputs/outputs.d.ts",
-      "import": "./dist/esm/outputs/outputs.js",
-      "require": "./dist/cjs/outputs/outputs.js",
-      "default": "./dist/esm/outputs/outputs.js"
-    }
+      "require": "./dist/outputs.cjs",
+      "import": "./dist/outputs.mjs"
+    },
+    "./package.json": "./package.json"
   },
-  "typesVersions": {
-    "*": {
-      "outputs": ["./dist/esm/outputs/outputs"]
-    }
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "node-dev": "^7.4.3",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.3"
+    "@types/node": "^25.0.3",
+    "bumpp": "^10.3.2",
+    "tsdown": "^0.18.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   }
 }

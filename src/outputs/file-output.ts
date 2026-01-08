@@ -1,5 +1,6 @@
-import {LogData, LogOutput} from '../logger-base';
+
 import * as fs from 'fs';
+import type {LogData, LogOutput} from '../logger-types';
 
 export interface FileOutputOptions {
   transform?: (logData: LogData) => Promise<LogData>;

@@ -1,10 +1,11 @@
-import {LoggerBase, LogOutput} from './logger-base';
+import {LoggerBase} from './logger-base';
+import type {LogOutput} from './logger-types';
 
 export const LogLevel = {
   info: {name: 'log-level', value: 'info'},
   debug: {name: 'log-level', value: 'debug'},
   warning: {name: 'log-level', value: 'warning'},
-  error: {name: 'log-level', value: 'debug'},
+  error: {name: 'log-level', value: 'error'},
 };
 
 export class StandardLogger extends LoggerBase {

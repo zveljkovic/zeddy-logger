@@ -1,4 +1,4 @@
-.idea
 node_modules
 dist
-logs.txt
+*.log
+.DS_Store

@@ -1,5 +1,6 @@
-import {LogData, LogOutput} from '../logger-base';
+
 import * as process from 'process';
+import type {LogData, LogOutput} from '../logger-types';
 
 export interface JsonOutputOptions {
   transform?: (logData: LogData) => Promise<LogData>;

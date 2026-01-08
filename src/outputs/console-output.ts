@@ -1,4 +1,5 @@
-import {LogData, LogOutput, LogTag} from '../logger-base';
+
+import type {LogData, LogOutput, LogTag} from '../logger-types';
 
 export type ConsoleLogFunctions = 'info' | 'error' | 'debug' | 'log';
 export type ConsoleFunctionMap = {
