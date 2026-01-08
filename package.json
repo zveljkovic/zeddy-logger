@@ -1,7 +1,7 @@
 {
   "name": "zeddy-logger",
   "type": "module",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Logging library for Node",
   "author": "Zlatibor Veljković",
   "license": "The Unlicense",
