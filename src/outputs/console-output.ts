@@ -1,5 +1,4 @@
-
-import type {LogData, LogOutput, LogTag} from '../logger-types';
+import type {LogData, LogOutput, LogTag, MaybePromise} from '../logger-types';
 
 export type ConsoleLogFunctions = 'info' | 'error' | 'debug' | 'log';
 export type ConsoleFunctionMap = {
@@ -8,7 +7,7 @@ export type ConsoleFunctionMap = {
   consoleFunction: ConsoleLogFunctions;
 };
 export interface ConsoleOutputOptions {
-  transform?: (logData: LogData) => Promise<LogData>;
+  transform?: (logData: LogData) => MaybePromise<LogData>;
   tagToConsoleFunctionMap?: ConsoleFunctionMap[];
 }
 export class ConsoleOutput implements LogOutput {
