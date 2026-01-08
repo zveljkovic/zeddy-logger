@@ -3,7 +3,7 @@ import type {LogData, LogOutput} from './logger-types';
 export class LoggerBase {
   constructor(private logOutputs: LogOutput[]) {}
 
-  async log(logData: LogData) {
+  async baseLog(logData: LogData) {
     for (const logOutput of this.logOutputs) {
       if (!logOutput.transform) {
         // no transform function, just log

@@ -1,9 +1,9 @@
 
 import * as process from 'process';
-import type {LogData, LogOutput} from '../logger-types';
+import type {LogData, LogOutput, MaybePromise} from '../logger-types';
 
 export interface JsonOutputOptions {
-  transform?: (logData: LogData) => Promise<LogData>;
+  transform?: (logData: LogData) => MaybePromise<LogData>;
 }
 export class JsonOutput implements LogOutput {
   constructor(protected opts: JsonOutputOptions) {}

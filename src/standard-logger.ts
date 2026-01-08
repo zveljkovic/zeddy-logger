@@ -14,18 +14,18 @@ export class StandardLogger extends LoggerBase {
   }
 
   public info(message: string, data?: any) {
-    void this.log({tags: [LogLevel.info], data, message});
+    void this.baseLog({tags: [LogLevel.info], data, message});
   }
 
   public debug(message: string, data?: any) {
-    void this.log({tags: [LogLevel.debug], data, message});
+    void this.baseLog({tags: [LogLevel.debug], data, message});
   }
 
   public warning(message: string, data?: any) {
-    void this.log({tags: [LogLevel.warning], data, message});
+    void this.baseLog({tags: [LogLevel.warning], data, message});
   }
 
   public error(message: string, data?: any) {
-    void this.log({tags: [LogLevel.error], data, message});
+    void this.baseLog({tags: [LogLevel.error], data, message});
   }
 }
